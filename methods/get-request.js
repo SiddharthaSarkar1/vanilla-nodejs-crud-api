@@ -1,6 +1,6 @@
 module.exports = (req, res) => {
   let baseURL = req.url.substring(0, req.url.lastIndexOf("/") + 1);
-    // console.log(baseURL);
+  // console.log(baseURL);
   let id = req.url.split("/")[3];
   //   console.log(id);
 
@@ -31,9 +31,11 @@ module.exports = (req, res) => {
       res.statusCode = 200;
       res.write(JSON.stringify(filteredMovie));
       res.end();
-    }else{
-        res.statusCode = 404;
-      res.write(JSON.stringify({ title: "Not Found", message: "Movie not found" }));
+    } else {
+      res.statusCode = 404;
+      res.write(
+        JSON.stringify({ title: "Not Found", message: "Movie not found" })
+      );
       res.end();
     }
   } else {
